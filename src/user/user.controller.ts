@@ -9,4 +9,9 @@ export class UserController {
   gettest() {
     return this.userService.test();
   }
+
+  @Get()
+  fileAll(){
+    return this.userService.fileAll();
+  }
 }
