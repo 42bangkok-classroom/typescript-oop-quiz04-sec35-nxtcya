@@ -9,14 +9,8 @@ export class UserService {
   }
 
   async findAll(): Promise<IUser[]> {
-    try {
-      const rawData = await fs.readFile('data/users.json', 'utf-8');
+    const rawData = await fs.readFile('./data/users.json', 'utf-8');
 
-      const user: IUser[] = JSON.parse(rawData) as IUser[];
-
-      return user;
-    } catch {
-      throw new InternalServerErrorException();
-    }
+    return JSON.parse(rawData) as IUser[];
   }
 }
