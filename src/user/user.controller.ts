@@ -12,7 +12,7 @@ export class UserController {
   }
 
   @Get()
-  async fildAll(): Promise<IUser[]> {
+  fildAll(): IUser[] {
     return this.userService.findAll();
   }
 }
