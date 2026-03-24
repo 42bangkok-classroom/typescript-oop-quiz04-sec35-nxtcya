@@ -11,7 +11,7 @@ export class UserController {
   }
 
   @Get()
-  fileAll(){
+  fileAll() {
     return this.userService.fileAll();
   }
 }

@@ -1,24 +1,22 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
-import * as fs from "fs/promises"
+import * as fs from 'fs/promises';
 import { IUser } from './user.interface';
-
 
 @Injectable()
 export class UserService {
-  test():IUser[]{
+  test(): IUser[] {
     return [];
   }
 
-  async fileAll() : Promise<IUser[]>{
-    try{
-      const rawData = await fs.readFile('data/users.json','utf-8')
+  async fileAll(): Promise<IUser[]> {
+    try {
+      const rawData = await fs.readFile('data/users.json', 'utf-8');
 
-      const user : IUser[] = JSON.parse(rawData)
+      const user: IUser[] = JSON.parse(rawData);
 
       return user;
-    }catch(error){
-      throw new InternalServerErrorException()
+    } catch (error) {
+      throw new InternalServerErrorException();
     }
   }
-
 }
