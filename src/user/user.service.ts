@@ -14,20 +14,20 @@ export class UserService {
     return JSON.parse(rawData) as IUser[];
   }
 
-  findOne(id: string, fields?: string): Partial<IUser> {
+  findOne(id: string, fields?: string | string[]): Partial<IUser> {
     const users = this.findAll();
 
     const user = users.find((u) => u.id === id);
 
     if (!user) {
-      throw new NotFoundException();
+      throw new NotFoundException('Not Found');
     }
 
     if (!fields) {
       return user;
     }
 
-    const fieldsArray = fields.split(',');
+    const fieldsArray = Array.isArray(fields) ? fields : fields.split(',');
 
     const filterUser: Partial<IUser> = {};
 
