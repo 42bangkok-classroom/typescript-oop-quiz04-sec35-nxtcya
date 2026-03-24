@@ -4,11 +4,11 @@ import { IUser } from './user.interface';
 
 @Injectable()
 export class UserService {
-  test(): IUser[] {
+  test() {
     return [];
   }
 
-  async fileAll(): Promise<IUser[]> {
+  async findAll(): Promise<IUser[]> {
     try {
       const rawData = await fs.readFile('data/users.json', 'utf-8');
 
