@@ -8,7 +8,7 @@ export class UserService {
     return [];
   }
 
-  async findAll(): IUser[] {
+  findAll(): IUser[] {
     const rawData = fs.readFileSync('data/users.json', 'utf-8');
 
     return JSON.parse(rawData) as IUser[];
