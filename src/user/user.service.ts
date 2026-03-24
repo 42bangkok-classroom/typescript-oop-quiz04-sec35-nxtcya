@@ -4,7 +4,7 @@ import { IUser } from './user.interface';
 
 @Injectable()
 export class UserService {
-  test() {
+  test(): IUser[] {
     return [];
   }
 
@@ -12,10 +12,10 @@ export class UserService {
     try {
       const rawData = await fs.readFile('data/users.json', 'utf-8');
 
-      const user: IUser[] = JSON.parse(rawData);
+      const user: IUser[] = JSON.parse(rawData) as IUser[];
 
       return user;
-    } catch (error) {
+    } catch {
       throw new InternalServerErrorException();
     }
   }
